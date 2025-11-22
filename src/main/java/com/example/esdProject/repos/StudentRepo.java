@@ -1,9 +1,14 @@
 package com.example.esdProject.repos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.example.esdProject.entity.Student;
 @Repository
 public interface StudentRepo extends JpaRepository<Student, Integer> {
-
+    @Modifying
+    @Query("update Student s set s.isRequestActive = true where s.student_id = :id")
+    int markRequestActive(@Param("id") Integer id);
 }

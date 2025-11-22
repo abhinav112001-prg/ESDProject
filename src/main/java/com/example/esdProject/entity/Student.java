@@ -18,6 +18,8 @@ public class Student {
     private Integer total_credits;
     private Integer graduation_year;
     private String domain;
+    @Column(name = "isRequestActive", nullable = false)
+    private Boolean isRequestActive = false;
 }
 /*
         +-----------------+--------------+------+-----+---------+----------------+

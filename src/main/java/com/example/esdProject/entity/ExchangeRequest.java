@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -31,6 +32,9 @@ public class ExchangeRequest {
     public ExchangeRequest(Student requester, Student target_student) {
         this.requester = requester;
         this.target_student = target_student;
+        this.request_date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
+        String formattedDate = sdf.format(request_date);
     }
 }
 /*
