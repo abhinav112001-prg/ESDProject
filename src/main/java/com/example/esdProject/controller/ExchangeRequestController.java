@@ -3,6 +3,7 @@ package com.example.esdProject.controller;
 import java.util.*;
 
 import com.example.esdProject.dto.ExchangeRequestDTO;
+import com.example.esdProject.dto.UpdateExchangeRequestDTO;
 import com.example.esdProject.entity.ExchangeRequest;
 import com.example.esdProject.service.ExchangeRequestService;
 import org.springframework.validation.annotation.Validated;
@@ -20,5 +21,10 @@ public class ExchangeRequestController {
     @PostMapping("/create-request")
     public ExchangeRequest createExchangeRequest(@Validated @RequestBody ExchangeRequestDTO req){
         return service.createExchangeRequest(req);
+    }
+
+    @PutMapping("/update-request")
+    public void updateExchangeRequest(@Validated @RequestBody UpdateExchangeRequestDTO req){
+        service.updateExchangeRequest(req);
     }
 }

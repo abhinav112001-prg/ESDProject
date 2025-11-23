@@ -11,4 +11,8 @@ public interface StudentRepo extends JpaRepository<Student, Integer> {
     @Modifying
     @Query("update Student s set s.isRequestActive = true where s.student_id = :id")
     int markRequestActive(@Param("id") Integer id);
+
+    @Modifying
+    @Query("update Student s set s.isRequestActive = false where s.student_id = :id")
+    int markRequestInactive(@Param("id") Integer id);
 }
