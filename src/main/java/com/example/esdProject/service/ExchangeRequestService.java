@@ -1,6 +1,7 @@
 package com.example.esdProject.service;
 
 import com.example.esdProject.dto.ExchangeRequestDTO;
+import com.example.esdProject.dto.PendingRequestDTO;
 import com.example.esdProject.dto.UpdateExchangeRequestDTO;
 import com.example.esdProject.entity.ExchangeRequest;
 import com.example.esdProject.entity.Student;
@@ -66,5 +67,8 @@ public class ExchangeRequestService {
             throw new IllegalArgumentException("Invalid status: " + status);
         }
 
+    }
+    public List<ExchangeRequest> getAllPendingRequests(PendingRequestDTO req){
+        return exchangeRequestRepo.findAllByRequesterId(req.getStudentId());
     }
 }

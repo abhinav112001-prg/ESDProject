@@ -3,6 +3,7 @@ package com.example.esdProject.controller;
 import java.util.*;
 
 import com.example.esdProject.dto.ExchangeRequestDTO;
+import com.example.esdProject.dto.PendingRequestDTO;
 import com.example.esdProject.dto.UpdateExchangeRequestDTO;
 import com.example.esdProject.entity.ExchangeRequest;
 import com.example.esdProject.service.ExchangeRequestService;
@@ -26,5 +27,10 @@ public class ExchangeRequestController {
     @PutMapping("/update-request")
     public void updateExchangeRequest(@Validated @RequestBody UpdateExchangeRequestDTO req){
         service.updateExchangeRequest(req);
+    }
+
+    @PostMapping("/pending-requests")
+    public  List<ExchangeRequest> getAllPendingRequests(@Validated @RequestBody PendingRequestDTO req){
+        return service.getAllPendingRequests(req);
     }
 }
