@@ -17,5 +17,8 @@ public interface ExchangeRequestRepo extends JpaRepository<ExchangeRequest, Inte
     public int updateExchangeRequest(@Param("dto") UpdateExchangeRequestDTO dto);
 
     @Query("select e from ExchangeRequest e where e.target_student.student_id = :studentId and e.status = com.example.esdProject.entity.ExchangeRequest.ExchangeStatus.NEW")
+    List<ExchangeRequest> findAllByTargetId(@Param("studentId") Integer studentId);
+
+    @Query("select e from ExchangeRequest e where e.requester.student_id = :studentId")
     List<ExchangeRequest> findAllByRequesterId(@Param("studentId") Integer studentId);
 }

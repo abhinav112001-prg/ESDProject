@@ -69,6 +69,9 @@ public class ExchangeRequestService {
 
     }
     public List<ExchangeRequest> getAllPendingRequests(PendingRequestDTO req){
+        return exchangeRequestRepo.findAllByTargetId(req.getStudentId());
+    }
+    public List<ExchangeRequest> getExchangeRequestHistory(PendingRequestDTO req) {
         return exchangeRequestRepo.findAllByRequesterId(req.getStudentId());
     }
 }

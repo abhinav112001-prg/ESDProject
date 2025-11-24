@@ -33,4 +33,9 @@ public class ExchangeRequestController {
     public  List<ExchangeRequest> getAllPendingRequests(@Validated @RequestBody PendingRequestDTO req){
         return service.getAllPendingRequests(req);
     }
+
+    @PostMapping("/history")
+    public  List<ExchangeRequest> getExchangeRequestHistory(@Validated @RequestBody PendingRequestDTO req){
+        return service.getExchangeRequestHistory(req);
+    }
 }
